@@ -1,0 +1,32 @@
+{
+  "color": {
+    "call-health": {
+      "healthy": {
+        "background": { "$type": "color", "$value": "{color.status.success.background}" },
+        "content": { "$type": "color", "$value": "{color.status.success.content}" }
+      },
+      "attention": {
+        "background": { "$type": "color", "$value": "{color.status.warning.background}" },
+        "content": { "$type": "color", "$value": "{color.status.warning.content}" }
+      },
+      "critical": {
+        "background": { "$type": "color", "$value": "{color.status.critical.background}" },
+        "content": { "$type": "color", "$value": "{color.status.critical.content}" }
+      },
+      "unknown": {
+        "background": { "$type": "color", "$value": "{color.neutral.200}" },
+        "content": { "$type": "color", "$value": "{color.neutral.800}" }
+      }
+    }
+  },
+  "dimension": {
+    "button": {
+      "height": {
+        "compact": { "$type": "dimension", "$value": { "value": 28, "unit": "px" } },
+        "small": { "$type": "dimension", "$value": { "value": 36, "unit": "px" } },
+        "medium": { "$type": "dimension", "$value": { "value": 44, "unit": "px" } },
+        "large": { "$type": "dimension", "$value": { "value": 52, "unit": "px" } }
+      }
+    }
+  }
+}
