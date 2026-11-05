@@ -1,0 +1,88 @@
+.button {
+  --brix-button-background-disabled: var(--brix-color-neutral-400);
+  --brix-button-content-disabled: var(--brix-color-neutral-600);
+  --brix-button-focus-ring: rgb(47 223 133 / 10%);
+  --brix-button-font-weight: 600;
+  --brix-button-height-default: 36px;
+  --brix-button-height-small: 28px;
+  --brix-button-duration: 200ms;
+  box-sizing: border-box;
+  border: 0;
+  border-radius: var(--brix-radius-control);
+  color: var(--brix-button-content);
+  background-color: var(--brix-button-background);
+  font-family: var(--brix-font-family);
+  font-size: var(--brix-font-size-body);
+  font-weight: var(--brix-button-font-weight);
+  line-height: var(--brix-line-body);
+  cursor: pointer;
+  outline: none;
+  transition: all var(--brix-button-duration);
+}
+
+.primary {
+  --brix-button-background: var(--brix-color-action-primary-bg);
+  --brix-button-background-hover: var(--brix-color-action-primary-bg-hover);
+  --brix-button-content: var(--brix-color-action-primary-text);
+}
+
+.secondary {
+  --brix-button-background: var(--brix-color-action-secondary-bg);
+  --brix-button-background-hover: var(--brix-color-action-secondary-bg-hover);
+  --brix-button-background-pressed: var(--brix-color-action-secondary-bg-pressed);
+  --brix-button-content: var(--brix-color-action-secondary-text);
+  border: 1px solid var(--brix-color-action-secondary-border);
+}
+
+.secondary:hover:not(:disabled) {
+  border-color: var(--brix-color-action-secondary-border-hover);
+}
+
+.danger {
+  --brix-button-background: var(--brix-color-action-danger-bg);
+  --brix-button-background-hover: var(--brix-color-action-danger-bg-hover);
+  --brix-button-background-pressed: var(--brix-color-action-danger-bg-pressed);
+  --brix-button-content: var(--brix-color-action-danger-text);
+}
+
+.button:hover:not(:disabled) {
+  background-color: var(--brix-button-background-hover);
+}
+
+.secondary:active:not(:disabled),
+.danger:active:not(:disabled) {
+  background-color: var(--brix-button-background-pressed);
+}
+
+.button:focus,
+.button:focus-visible {
+  outline: none;
+  box-shadow: 0 0 0 3px var(--brix-button-focus-ring);
+}
+
+.button:disabled {
+  color: var(--brix-button-content-disabled);
+  background-color: var(--brix-button-background-disabled);
+  cursor: not-allowed;
+}
+
+.secondary:disabled {
+  border-color: var(--brix-color-action-secondary-border-disabled);
+}
+
+.default {
+  height: var(--brix-button-height-default);
+  padding: 0 var(--brix-space-4);
+}
+
+.small {
+  height: var(--brix-button-height-small);
+  padding: 0 var(--brix-space-3);
+}
+
+.storyRow {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: var(--brix-space-4);
+}
