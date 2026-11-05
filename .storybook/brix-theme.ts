@@ -1,0 +1,26 @@
+import { create } from 'storybook/theming'
+
+export const brixTheme = create({
+  base: 'light',
+  brandTitle: 'Brix Design System',
+  brandUrl: '/',
+  brandImage: '/brand/brix-mark.svg',
+  brandTarget: '_self',
+  colorPrimary: '#2F7D61',
+  colorSecondary: '#24614E',
+  appBg: '#F7F7F7',
+  appContentBg: '#FCFCFC',
+  appBorderColor: '#DDDDDD',
+  appBorderRadius: 8,
+  fontBase: 'Figtree Variable, Figtree, system-ui, sans-serif',
+  fontCode: 'ui-monospace, SFMono-Regular, Menlo, monospace',
+  textColor: '#2E2E2E',
+  textMutedColor: '#5E5E5E',
+  barTextColor: '#5E5E5E',
+  barSelectedColor: '#24614E',
+  barHoverColor: '#2F7D61',
+  inputBg: '#FCFCFC',
+  inputBorder: '#D3D3D3',
+  inputTextColor: '#2E2E2E',
+  inputBorderRadius: 6,
+})
