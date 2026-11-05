@@ -1,0 +1,73 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks'
+import * as Stories from './CallHealthBadge.stories'
+
+<Meta of={Stories} />
+
+# Call center badge
+
+<span className="brix-doc-status">Artifact parity</span>
+
+Use these compact badges to surface a detected call condition or live-call status inside a constrained card.
+
+## Default usage
+
+<Canvas of={Stories.DefaultUsage} />
+
+<Controls of={Stories.DefaultUsage} />
+
+## When to use
+
+Use one badge for each supported condition that is currently true. Keep the detector's exact label. Do not use a badge as a substitute for explanatory content when the user needs evidence, history, or a recommended response.
+
+## Statuses
+
+<Canvas of={Stories.AllStatuses} />
+
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Group</th>
+      <th scope="col">Labels</th>
+      <th scope="col">Treatment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Error badges</td><td>Tool failure; User escalation</td><td>Red indicator, red text, pale-red background</td></tr>
+    <tr><td>Warning badges</td><td>Negative Sentiment; Repetition detected; Prolonged silence</td><td>Amber indicator, amber text, pale-amber background</td></tr>
+    <tr><td>Status badges</td><td>Live call</td><td>Sprig indicator, dark text, neutral background</td></tr>
+  </tbody>
+</table>
+
+### Error
+
+<Canvas of={Stories.Error} />
+
+### Warning
+
+<Canvas of={Stories.Warning} />
+
+### Live
+
+<Canvas of={Stories.Live} />
+
+## AI selection contract
+
+<table>
+  <thead>
+    <tr><th scope="col">Field</th><th scope="col">Guidance</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>intent</code></td><td>Surface the exact call-center status label supplied by the detector or live session.</td></tr>
+    <tr><td><code>use_when</code></td><td>A compact call card needs one of the supported artifact labels.</td></tr>
+    <tr><td><code>avoid_when</code></td><td>The status is not supported or the user needs explanatory detail instead of a compact label.</td></tr>
+    <tr><td><code>required_context</code></td><td>Exact label and mapped tone; live status must come from session state.</td></tr>
+    <tr><td><code>default_configuration</code></td><td>20px inline badge and two-second pulsing indicator.</td></tr>
+    <tr><td><code>fallback</code></td><td>Omit the badge rather than inventing a status.</td></tr>
+  </tbody>
+</table>
+
+## Accessibility
+
+The indicator is decorative; the visible text carries the meaning. Reduced-motion preferences stop the pulse without removing the label or color.
+
+The source artifact’s exact error and warning color pairs measure below 4.5:1 at 12px. The parity stories document that known limitation and exempt only the automated color-contrast rule; no colors were silently changed.
