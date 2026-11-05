@@ -1,0 +1,6 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 132 32" role="img" aria-labelledby="title">
+  <title id="title">Brix</title>
+  <rect width="32" height="32" rx="8" fill="#24614E"/>
+  <path d="M8 9h7v6H8V9Zm9 0h7v6h-7V9ZM8 17h7v6H8v-6Zm9 0h7v6h-7v-6Z" fill="#FCFCFC"/>
+  <text x="42" y="23" fill="#243B34" font-family="Figtree, Arial, sans-serif" font-size="20" font-weight="700">Brix</text>
+</svg>
