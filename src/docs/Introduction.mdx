@@ -1,0 +1,61 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Introduction" />
+
+<span className="brix-doc-status">Ready · v0.1</span>
+
+# Brix design system
+
+Brix is the interface foundation for a call-operations product. It turns a visual language into a small, decision-ready system that helps designers, engineers, and AI tools make the same interface choices for the same reasons.
+
+The system is intentionally right-sized. One designer maintains it, so Brix documents the pieces with the highest product leverage instead of imitating the process overhead of a large enterprise library.
+
+<div className="brix-doc-grid">
+  <article className="brix-doc-card">
+    <h3>Make hierarchy obvious</h3>
+    <p>One dominant action, clear supporting actions, and semantic color roles make every decision point easier to scan.</p>
+  </article>
+  <article className="brix-doc-card">
+    <h3>Document the decision</h3>
+    <p>Pages explain when a component is the right tool, how to configure it, and which alternative to use when it is not.</p>
+  </article>
+  <article className="brix-doc-card">
+    <h3>Design for real operations</h3>
+    <p>Call health, live status, and playback events remain distinct so the interface stays trustworthy under pressure.</p>
+  </article>
+</div>
+
+## How the system is organized
+
+### Design tokens
+
+The palette records available values. Brand tokens express identity. Semantic tokens state a color’s job. Components normally consume those roles; artifact-parity components retain a literal source value only when substituting a broader alias would change the approved rendering.
+
+### Components
+
+Each component page combines a live implementation with purpose, interaction, content, accessibility, token, and AI-selection guidance. Focused stories isolate meaningful states instead of generating every theoretical prop combination.
+
+### Compositions
+
+Live Call Card Compact and Audio Transcript Player show how the atoms behave in workflow context. Their documentation keeps live session state, detected warning/error signals, and recorded playback events distinct.
+
+## Reading component status
+
+| Status | Meaning |
+| --- | --- |
+| **Ready** | Suitable for product use and covered by interaction and accessibility guidance. |
+| **Evolving** | Stable enough to evaluate, with an open behavior or API decision. |
+| **Experimental** | A documented direction, not yet a product default. |
+
+## Working agreement
+
+Brix is a shared contract rather than a gallery. Before changing a component, confirm the user need, validate the behavior in its composed workflow, and record any new selection rule in plain language. A designer or AI tool should be able to explain *why* it selected a component—not merely reproduce its appearance.
+
+## What ships in this release
+
+- Color palette, brand roles, and semantic color roles
+- Button hierarchy and density rules
+- Searchable multi-select with explicit selection summarization
+- Call-center error, warning, and live badges
+- Live Call Card Compact composition
+- Audio Transcript Player with event ranges
