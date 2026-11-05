@@ -1,0 +1,75 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks'
+import * as Stories from './CallAgentCard.stories'
+
+<Meta of={Stories} />
+
+# Live call card
+
+<span className="brix-doc-status">Artifact parity</span>
+
+Use the live call card to monitor one active outbound call and expose takeover, mute, transcript, and tool activity in one compact surface.
+
+## Default usage
+
+<Canvas of={Stories.DefaultUsage} />
+
+<Controls of={Stories.DefaultUsage} />
+
+## When to use
+
+Use this composition while a call is active. For a completed recording, use the Audio transcript player instead. Do not place unrelated metrics or historical context inside the card; the fixed composition is reserved for the current call.
+
+## Context variants
+
+Show the agent name when calls are grouped by agent. Omit the repeated name in a mixed feed where surrounding context identifies the agent.
+
+### With agent name
+
+<Canvas of={Stories.DefaultUsage} />
+
+### Without agent name
+
+<Canvas of={Stories.WithoutAgentName} />
+
+## Interaction states
+
+### Tool details
+
+<Canvas of={Stories.ToolDetails} />
+
+### Unmuted
+
+<Canvas of={Stories.Unmuted} />
+
+## AI selection contract
+
+<table>
+  <thead>
+    <tr><th scope="col">Field</th><th scope="col">Guidance</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>intent</code></td><td>Monitor one active outbound call and expose takeover, mute, transcript, and tool activity.</td></tr>
+    <tr><td><code>use_when</code></td><td>The call is active and the surrounding interface needs the compact artifact composition.</td></tr>
+    <tr><td><code>avoid_when</code></td><td>Reviewing a completed recording; use Audio transcript player instead.</td></tr>
+    <tr><td><code>required_context</code></td><td>Variant, agent, direction/phone, elapsed time, transcript rows, mute state, and tool execution state.</td></tr>
+    <tr><td><code>default_configuration</code></td><td><code>sort-by-agent</code>, Tool failure, collapsed tool details, muted.</td></tr>
+    <tr><td><code>decision_rules</code></td><td>Match the rendered artifact: <code>sort-by-agent</code> shows the underlined agent name; <code>mixed-feed</code> hides it.</td></tr>
+  </tbody>
+</table>
+
+## Anatomy
+
+1. Tool failure badge and optional underlined agent name
+2. Take over conversation and mute controls
+3. Direction, phone number, and elapsed time
+4. Scrollable agent/customer transcript
+5. Performing tool disclosure with parameters and progress
+
+## Interaction
+
+- Hovering the card changes only its two-pixel border to Sprig 800.
+- Mute toggles the visible volume icon and pressed state.
+- Expanding “Performing tool • 00:10” reveals the exact parameter and progress copy, then smooth-scrolls the disclosure into view after 100ms.
+- The tool spinner rotates continuously while the operation is in progress.
+
+The source artifact’s exact error badge and Agent transcript label colors measure below 4.5:1 at 12px. Parity stories retain those colors and document the limitation instead of silently redesigning them.
