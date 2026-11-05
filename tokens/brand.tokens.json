@@ -1,0 +1,17 @@
+{
+  "color": {
+    "brand": {
+      "$type": "color",
+      "weakest": { "$value": "{color.everpine.100}", "$description": "Tinted brand surface and selected background." },
+      "weaker": { "$value": "{color.everpine.400}", "$description": "Decorative brand accent with low visual weight." },
+      "default": { "$value": "{color.everpine.800}", "$description": "Primary brand action and identity color." },
+      "stronger": { "$value": "{color.everpine.900}", "$description": "Hover state and high-emphasis brand text." },
+      "strongest": { "$value": "{color.tarnish.900}", "$description": "Deep brand surface and pressed action state." },
+      "on-brand": { "$value": "{color.neutral.white}", "$description": "Content placed on default or stronger brand surfaces." },
+      "organic": { "$value": "{color.sprig.900}", "$description": "Secondary organic accent." },
+      "ai": { "$value": "{color.fizz.900}", "$description": "Reserved accent for AI-generated or AI-assessed moments." },
+      "warm": { "$value": "{color.pomelo.900}", "$description": "Warm editorial accent." },
+      "highlight": { "$value": "{color.zest.900}", "$description": "High-visibility highlight used sparingly." }
+    }
+  }
+}
