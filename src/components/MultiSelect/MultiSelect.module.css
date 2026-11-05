@@ -1,0 +1,280 @@
+.root {
+  width: 100%;
+  max-width: 448px;
+  min-width: 0;
+  font-family: var(--brix-font-family);
+}
+
+.trigger {
+  display: flex;
+  width: 100%;
+  height: 36px;
+  align-items: center;
+  padding: 0 16px;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  color: #2e2e2e;
+  background: #fcfcfc;
+  font-family: var(--brix-font-family);
+  font-size: 16px;
+  font-weight: 400;
+  line-height: 24px;
+  cursor: pointer;
+  outline: none;
+  transition: all 200ms;
+}
+
+.trigger:hover:not([aria-disabled='true']) {
+  border-color: #d3d3d3;
+}
+
+.trigger:focus,
+.trigger:focus-visible,
+.trigger[data-state='open'] {
+  border-color: #2fdf85;
+  outline: none;
+  box-shadow: 0 0 0 3px rgb(47 223 133 / 10%);
+}
+
+.trigger[aria-disabled='true'] {
+  color: #b0b0b0;
+  background: #f7f7f7;
+  cursor: not-allowed;
+}
+
+.triggerContent {
+  display: flex;
+  min-width: 0;
+  flex: 1;
+  align-items: center;
+  gap: 8px;
+  overflow: hidden;
+}
+
+.triggerLabel {
+  flex: none;
+  color: #717171;
+  white-space: nowrap;
+}
+
+.summaryBadge {
+  display: flex;
+  min-width: 0;
+  align-items: center;
+  padding: 4px 8px;
+  overflow: hidden;
+  border-radius: 4px;
+  color: #5e5e5e;
+  background: #ebebeb;
+  font-size: 12px;
+  font-weight: 500;
+  line-height: 16px;
+}
+
+.summaryText {
+  min-width: 0;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.clearSelection {
+  display: flex;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  padding: 4px;
+  margin: -2px -4px -2px 4px;
+  border: 0;
+  border-radius: 4px;
+  color: #717171;
+  background: transparent;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 200ms;
+}
+
+.clearSelection:hover,
+.clearSelection:focus-visible {
+  background: #dddddd;
+}
+
+.clearSelection svg {
+  width: 12px;
+  height: 12px;
+  stroke-width: 2;
+}
+
+.triggerIcon {
+  width: 16px;
+  height: 16px;
+  flex: none;
+  margin-left: 8px;
+  color: #717171;
+}
+
+.content {
+  z-index: 9999;
+  width: var(--radix-popover-trigger-width);
+  overflow: hidden;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  background: #fcfcfc;
+  box-shadow:
+    0 10px 15px -3px rgb(0 0 0 / 10%),
+    0 4px 6px -4px rgb(0 0 0 / 10%);
+  font-family: var(--brix-font-family);
+}
+
+.searchSection {
+  padding: 12px;
+  border-bottom: 1px solid #ebebeb;
+  background: #fcfcfc;
+}
+
+.searchField {
+  position: relative;
+}
+
+.searchIcon {
+  position: absolute;
+  top: 50%;
+  left: 12px;
+  width: 16px;
+  height: 16px;
+  color: #717171;
+  transform: translateY(-50%);
+  pointer-events: none;
+}
+
+.searchInput {
+  width: 100%;
+  height: 36px;
+  padding: 0 16px 0 40px;
+  border: 1px solid #dddddd;
+  border-radius: 8px;
+  color: #2e2e2e;
+  background: #f7f7f7;
+  font-family: var(--brix-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  outline: none;
+  transition: all 200ms;
+}
+
+.searchInput::placeholder {
+  color: #717171;
+}
+
+.searchInput:focus,
+.searchInput:focus-visible {
+  border-color: #2fdf85;
+  outline: none;
+  box-shadow: 0 0 0 3px rgb(47 223 133 / 10%);
+}
+
+.listbox {
+  max-height: 256px;
+  overflow-y: auto;
+  background: #fcfcfc;
+}
+
+.option {
+  display: flex;
+  width: 100%;
+  min-width: 0;
+  align-items: center;
+  padding: 12px 16px;
+  border: 0;
+  color: #2e2e2e;
+  background: #fcfcfc;
+  font-family: var(--brix-font-family);
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+  cursor: pointer;
+  outline: none;
+  transition: background-color 200ms;
+}
+
+.option:hover,
+.option:focus-visible {
+  background: #ebfdf2;
+}
+
+.option:disabled {
+  color: #b0b0b0;
+  cursor: not-allowed;
+}
+
+.checkbox {
+  display: flex;
+  width: 20px;
+  height: 20px;
+  flex: none;
+  align-items: center;
+  justify-content: center;
+  margin-right: 12px;
+  border: 2px solid #d3d3d3;
+  border-radius: 4px;
+  background: #fcfcfc;
+}
+
+.checkboxSelected {
+  border-color: #53b78a;
+  background: #53b78a;
+}
+
+.checkbox svg {
+  width: 12px;
+  height: 12px;
+  color: #f9fffb;
+  stroke-width: 3;
+}
+
+.optionLabel {
+  min-width: 0;
+  flex: 1;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+}
+
+.empty {
+  padding: 12px 16px;
+  margin: 0;
+  color: #717171;
+  background: #fcfcfc;
+  font-size: 14px;
+  font-weight: 400;
+  line-height: 20px;
+  text-align: left;
+}
+
+.storySurface {
+  width: min(calc(100vw - 48px), 512px);
+  padding: 32px;
+  border: 1px solid #ebebeb;
+  border-radius: 8px;
+  background: #f7f7f7;
+}
+
+.storyFrame {
+  width: 100%;
+  max-width: 448px;
+  margin: 0 auto;
+}
+
+.srOnly {
+  position: absolute;
+  width: 1px;
+  height: 1px;
+  padding: 0;
+  margin: -1px;
+  overflow: hidden;
+  clip: rect(0, 0, 0, 0);
+  white-space: nowrap;
+  border: 0;
+}
