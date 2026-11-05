@@ -1,0 +1,17 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+import { ColorTokenVocabulary } from '../../docs-components/ColorTokenVocabulary'
+import { colorVocabularyGroups } from '../tokens/colorVocabularyGroups'
+
+<Meta title="Design Tokens/Color vocabulary" />
+
+# Color vocabulary
+
+Use these role-based tokens in product components. Brand, action, status, surface, border, focus, and text colors live together here so there is one implementation reference.
+
+<ColorTokenVocabulary groups={colorVocabularyGroups} />
+
+## Selection rule
+
+Choose a token for the job it performs—not because its resolved hex value looks close. Use the primitive palette only when maintaining the token system itself.
+
+The AI accent communicates provenance, not quality or certainty. Pair it with explicit language such as “AI assessed” whenever that distinction affects a decision.
