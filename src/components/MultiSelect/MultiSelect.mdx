@@ -1,0 +1,141 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import * as MultiSelectStories from './MultiSelect.stories';
+
+<Meta of={MultiSelectStories} />
+
+# Multi-select
+
+<span className="brix-doc-status">Ready</span>
+
+Use the multi-select to find and choose several agents from a list that benefits from search.
+
+## Default usage
+
+<Canvas of={MultiSelectStories.DefaultUsage} />
+
+<Controls of={MultiSelectStories.DefaultUsage} />
+
+## When to use
+
+Use this component when people can select several agents and the list may be too long to scan. Use a single-select combobox when the workflow accepts only one agent, and visible checkboxes when the full option set is short enough to remain on the page.
+
+## Selection states
+
+### Open
+
+<Canvas of={MultiSelectStories.Open} />
+
+### One selection
+
+<Canvas of={MultiSelectStories.SingleSelection} />
+
+### Multiple selections
+
+<Canvas of={MultiSelectStories.MultipleSelections} />
+
+## Selection summary
+
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Selection count</th>
+      <th scope="col">Trigger treatment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>None</td>
+      <td>Show the persistent <code>Agents</code> label.</td>
+    </tr>
+    <tr>
+      <td>One</td>
+      <td>Show a neutral badge with the selected agent's full name and a clear icon.</td>
+    </tr>
+    <tr>
+      <td>Two or more</td>
+      <td>Replace names with an exact <code>N selected</code> badge and a clear icon.</td>
+    </tr>
+  </tbody>
+</table>
+
+The menu stays open after each selection so people can compare and add more agents without reopening it.
+
+## Search and empty results
+
+### Filtered results
+
+<Canvas of={MultiSelectStories.Search} />
+
+### No matches
+
+<Canvas of={MultiSelectStories.EmptyResults} />
+
+## AI decision contract
+
+```yaml
+component: MultiSelectCombobox
+intent: Find and select one or more agents from a searchable list.
+use_when:
+  - The user can select multiple agents.
+  - The available option set benefits from text filtering.
+avoid_when:
+  - Exactly one agent is allowed.
+  - The list is short and should remain visible without disclosure.
+default_configuration:
+  label: Agents
+  search_placeholder: Search agents...
+  empty_message: No agents found.
+selection_summary:
+  none: Show only the Agents label.
+  one: Show the selected agent name in the summary badge.
+  multiple: Show the exact count as N selected.
+interaction_invariants:
+  - Keep the menu open after selecting or deselecting an option.
+  - Clear every selection when the badge clear icon is activated.
+  - Preserve the current search query after the menu closes.
+  - Truncate long option labels without changing their accessible name.
+accessibility_invariants:
+  - Expose a multi-select listbox and each row as an option.
+  - Announce selection changes without moving focus.
+  - Support search, Arrow keys, Enter, Escape, and Backspace removal.
+```
+
+## Interaction
+
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Input</th>
+      <th scope="col">Result</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr><td>Type in search</td><td>Filter agent names in place.</td></tr>
+    <tr><td>Click or press Enter on a row</td><td>Toggle its checkbox; keep the menu open.</td></tr>
+    <tr><td>Activate the summary badge's clear icon</td><td>Clear every selection without closing the menu.</td></tr>
+    <tr><td>Click outside or press Escape</td><td>Close the menu; preserve the search query.</td></tr>
+    <tr><td>Press Backspace in an empty search field</td><td>Remove the most recently selected agent.</td></tr>
+  </tbody>
+</table>
+
+## Anatomy
+
+1. Persistent `Agents` trigger label.
+2. Selection summary badge, shown only when at least one option is selected.
+3. Search field with the exact placeholder `Search agents...`.
+4. Truncating option label paired with a 20px checkbox.
+
+The menu has no secondary selection bar, helper copy, disabled sample, or keyboard hint. Those additions are outside the source artifact.
+
+## Content
+
+- Preserve agent names as supplied; do not shorten data values to make the layout fit.
+- Let the long `Agent Williams with a very long descriptive title that should truncate` example demonstrate overflow behavior.
+- Use the exact empty-state sentence `No agents found.` when filtering produces no matches.
+
+## Accessibility
+
+- The trigger exposes `combobox`, expanded state, and the controlled listbox.
+- The listbox exposes multi-selection and every option exposes its selected state.
+- The clear control has the explicit accessible name `Clear selection`.
+- A polite live region announces selections, removals, and clearing.
