@@ -1,0 +1,70 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+import { ColorRamp } from '../../docs-components/ColorRamp'
+
+<Meta title="Design Tokens/Primitive palette" />
+
+# Primitive color palette
+
+Palette tokens are the raw ingredients of Brix. They are useful for maintaining the system, but product components should use brand or semantic aliases instead of selecting palette values directly.
+
+export const everpine = [
+  { name: '100', value: '#E5FBF1' }, { name: '300', value: '#B7EFD0' },
+  { name: '400', value: '#91E2B5' }, { name: '500', value: '#6FD6A0' },
+  { name: '600', value: '#53B78A' }, { name: '700', value: '#3E9D77' },
+  { name: '800', value: '#2F7D61' }, { name: '900', value: '#24614E' },
+]
+
+export const sprig = [
+  { name: '100', value: '#F5FDEA' }, { name: '300', value: '#E6FAD3' },
+  { name: '400', value: '#D5F5B5' }, { name: '500', value: '#C4F29D' },
+  { name: '600', value: '#A9E086' }, { name: '700', value: '#8FCE6F' },
+  { name: '800', value: '#75BC57' }, { name: '900', value: '#5EAB41' },
+]
+
+export const tarnish = [
+  { name: '100', value: '#EEF6F2' }, { name: '300', value: '#CBE0D3' },
+  { name: '400', value: '#A3C4B1' }, { name: '500', value: '#80A994' },
+  { name: '600', value: '#648D7B' }, { name: '700', value: '#4B7163' },
+  { name: '800', value: '#34554B' }, { name: '900', value: '#243B34' },
+]
+
+export const pomelo = [
+  { name: '100', value: '#FFF6F2' }, { name: '300', value: '#FEEAE0' },
+  { name: '400', value: '#FDD7C7' }, { name: '500', value: '#FCC4B0' },
+  { name: '600', value: '#FBB09A' }, { name: '700', value: '#F99B84' },
+  { name: '800', value: '#F88770' }, { name: '900', value: '#F5745F' },
+]
+
+export const zest = [
+  { name: '100', value: '#FFFEF1' }, { name: '300', value: '#FFFBD9' },
+  { name: '400', value: '#FFF8B7' }, { name: '500', value: '#FEF496' },
+  { name: '600', value: '#FEED75' }, { name: '700', value: '#FDE556' },
+  { name: '800', value: '#FCDC39' }, { name: '900', value: '#FBD512' },
+]
+
+export const fizz = [
+  { name: '100', value: '#F9FFFB' }, { name: '300', value: '#EBFDF2' },
+  { name: '400', value: '#D7F9E3' }, { name: '500', value: '#BFF6D3' },
+  { name: '600', value: '#9EF1C0' }, { name: '700', value: '#7BEBAB' },
+  { name: '800', value: '#57E596' }, { name: '900', value: '#2FDF85' },
+]
+
+export const neutral = [
+  { name: 'white', value: '#FCFCFC' }, { name: '100', value: '#F7F7F7' },
+  { name: '200', value: '#EBEBEB' }, { name: '300', value: '#DDDDDD' },
+  { name: '400', value: '#D3D3D3' }, { name: '500', value: '#C2C2C2' },
+  { name: '600', value: '#B0B0B0' }, { name: '700', value: '#717171' },
+  { name: '800', value: '#5E5E5E' }, { name: 'black', value: '#2E2E2E' },
+]
+
+<ColorRamp name="Everpine · core brand" stops={everpine} />
+<ColorRamp name="Sprig · organic accent" stops={sprig} />
+<ColorRamp name="Tarnish · deep neutral" stops={tarnish} />
+<ColorRamp name="Pomelo · warm accent" stops={pomelo} />
+<ColorRamp name="Zest · highlight" stops={zest} />
+<ColorRamp name="Fizz · AI accent" stops={fizz} />
+<ColorRamp name="Neutral" stops={neutral} />
+
+## Usage rule
+
+Do not put a palette token directly into a component. First ask what role the color plays—brand, text, border, action, status, or surface—and use the matching semantic token. This keeps meaning stable when the palette evolves.
