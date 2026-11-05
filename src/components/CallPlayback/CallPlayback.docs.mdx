@@ -1,0 +1,72 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks'
+import * as Stories from './CallPlayback.stories'
+
+<Meta of={Stories} />
+
+# Audio transcript player
+
+<span className="brix-doc-status">Artifact parity</span>
+
+Use the audio transcript player to review a recorded call and jump to time-coded events without leaving playback.
+
+## Default usage
+
+<Canvas of={Stories.DefaultUsage} />
+
+<Controls of={Stories.DefaultUsage} />
+
+## When to use
+
+Use this component for a completed recording with reliable event start and end times. Use the Live call card while a call is active. Do not fabricate event timing or replace ranges with point markers.
+
+## Event ranges
+
+<Canvas of={Stories.EventSeeking} />
+
+<table>
+  <thead>
+    <tr><th scope="col">Range</th><th scope="col">Color</th><th scope="col">Tooltip</th></tr>
+  </thead>
+  <tbody>
+    <tr><td>1:20–1:25</td><td>Tarnish 700</td><td><code>{'{tool} used'}</code></td></tr>
+    <tr><td>2:00–2:05</td><td>Warning 600</td><td>Negative sentiment detected</td></tr>
+    <tr><td>2:10–2:15</td><td>Error 600</td><td>User escalation</td></tr>
+    <tr><td>2:20–3:05</td><td>Warning 600</td><td>User took over conversation</td></tr>
+  </tbody>
+</table>
+
+## Playback states
+
+### Playing
+
+<Canvas of={Stories.Playing} />
+
+### At takeover
+
+<Canvas of={Stories.AtTakeover} />
+
+## AI selection contract
+
+<table>
+  <thead>
+    <tr><th scope="col">Field</th><th scope="col">Guidance</th></tr>
+  </thead>
+  <tbody>
+    <tr><td><code>intent</code></td><td>Play a 3:05 call and navigate to the artifact’s time-coded events.</td></tr>
+    <tr><td><code>use_when</code></td><td>A recorded call has aligned event ranges and requires fast review.</td></tr>
+    <tr><td><code>avoid_when</code></td><td>Monitoring a live call or when precise event timestamps are unavailable.</td></tr>
+    <tr><td><code>required_inputs</code></td><td>Duration, current time, playback state, and exact start/end times for each event.</td></tr>
+    <tr><td><code>default_configuration</code></td><td>Paused at 0:00 with the handle visible and all four ranges on the track.</td></tr>
+    <tr><td><code>constraints</code></td><td>Never fabricate a timestamp or substitute a point marker for the artifact’s range.</td></tr>
+  </tbody>
+</table>
+
+## Interaction
+
+- The one-second preview timer advances while playing.
+- Clicking the track or an event range seeks and starts playback.
+- Releasing the draggable handle seeks and starts playback, even if playback was previously paused.
+- Event ranges become 80% opaque on hover and show one-line dark tooltips eight pixels above the track.
+- The handle changes from grab to grabbing and darkens while dragged.
+
+Invisible semantics add labels and keyboard seeking without changing the artifact canvas.
