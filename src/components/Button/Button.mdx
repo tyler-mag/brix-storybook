@@ -1,0 +1,170 @@
+import { Canvas, Controls, Meta } from '@storybook/addon-docs/blocks';
+import * as ButtonStories from './Button.stories';
+
+<Meta of={ButtonStories} />
+
+# Button
+
+<span className="brix-doc-status">Ready</span>
+
+Use button hierarchy to distinguish the action that advances a decision, its supporting action, and a destructive commitment.
+
+## Default usage
+
+<Canvas of={ButtonStories.DefaultUsage} />
+
+<Controls of={ButtonStories.DefaultUsage} />
+
+## When to use
+
+Use one primary button per decision point. A modal footer, form section, or toolbar can each be a decision point when the user encounters it independently. Use Secondary for an adjacent supporting action and Danger only for a destructive commitment.
+
+Use a short, specific verb that describes the result. Use a link when the action only navigates, and do not use a second primary button to represent a supporting or dismissive action.
+
+## Variants
+
+<Canvas of={ButtonStories.Variants} />
+
+The Primary treatment—including its exact color, type, radius, dimensions, and interaction states—preserves the source artifact. Secondary and Danger extend that same geometry through Brix semantic action tokens.
+
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Variant</th>
+      <th scope="col">Role</th>
+      <th scope="col">Decision rule</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Primary</td>
+      <td>Advances the current decision point.</td>
+      <td>Use once per decision point.</td>
+    </tr>
+    <tr>
+      <td>Secondary</td>
+      <td>Supports, defers, or offers an alternative.</td>
+      <td>Pair with Primary using its transparent background and Primary-colored border and text.</td>
+    </tr>
+    <tr>
+      <td>Danger</td>
+      <td>Confirms an action with destructive or difficult-to-reverse impact.</td>
+      <td>Use only at the final commitment step, after consequences are clear.</td>
+    </tr>
+  </tbody>
+</table>
+
+## Sizes
+
+<Canvas of={ButtonStories.Sizes} />
+
+Size responds to surrounding density; it does not change action hierarchy.
+
+<table>
+  <thead>
+    <tr>
+      <th scope="col">Size</th>
+      <th scope="col">Exact specification</th>
+      <th scope="col">Choose it when</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Default</td>
+      <td>36px high, 16px horizontal padding</td>
+      <td>Standard forms, dialogs, and page-level workflows.</td>
+    </tr>
+    <tr>
+      <td>Small</td>
+      <td>28px high, 12px horizontal padding</td>
+      <td>Space inside a card, ribbon, row, or embedded control is constrained.</td>
+    </tr>
+  </tbody>
+</table>
+
+Both sizes retain 14px/20px semibold text.
+
+## States
+
+### Hover
+
+<Canvas of={ButtonStories.Hover} />
+
+### Focus
+
+<Canvas of={ButtonStories.Focused} />
+
+### Disabled
+
+<Canvas of={ButtonStories.Disabled} />
+
+<table>
+  <thead>
+    <tr>
+      <th scope="col">State</th>
+      <th scope="col">Exact treatment</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td>Default</td>
+      <td><code>#24614E</code> background and <code>#E5FBF1</code> text.</td>
+    </tr>
+    <tr>
+      <td>Hover</td>
+      <td><code>#2F7D61</code> background over 200ms.</td>
+    </tr>
+    <tr>
+      <td>Focus</td>
+      <td><code>0 0 0 3px rgba(47, 223, 133, 0.1)</code> ring.</td>
+    </tr>
+    <tr>
+      <td>Disabled</td>
+      <td><code>#D3D3D3</code> background and <code>#B0B0B0</code> text.</td>
+    </tr>
+  </tbody>
+</table>
+
+## AI decision contract
+
+```yaml
+component: Button
+intent: Trigger an immediate product action at the correct level of hierarchy.
+use_when:
+  - The user can act now and the result is clear from a verb-led label.
+  - The action submits, confirms, starts, supports, or destructively commits a task.
+avoid_when:
+  - The destination is another page; use a link.
+required_context:
+  - surrounding_control_density
+  - current_decision_point
+  - action_consequence
+default_configuration:
+  variant: primary
+  size: default
+variant_rules:
+  primary: Use for the one action that advances the current decision point.
+  secondary: Use for a supporting, deferring, or alternative action beside Primary.
+  danger: Use for the final destructive or difficult-to-reverse commitment.
+size_rules:
+  default: Use in standard product workflows; height is exactly 36px.
+  small: Use in dense cards, ribbons, rows, or embedded controls; height is exactly 28px.
+accessibility_invariants:
+  - Render a native button and retain its visible text label.
+  - Preserve the Fizz focus ring for keyboard and programmatic focus.
+  - Expose disabled state with the native disabled attribute.
+ambiguity_resolution: If two actions appear equally important, clarify the decision hierarchy instead of rendering two Primary buttons.
+```
+
+## Content
+
+- Lead with a specific verb when the product action is known.
+- Describe the result, not the UI mechanics.
+- Keep the label short enough to scan without wrapping.
+
+## Accessibility
+
+- The component renders a native `button` and defaults to `type="button"`.
+- Enter and Space retain native activation behavior.
+- Disabled state prevents activation and is exposed to assistive technology.
+- The artifact-authored focus ring remains visible without the global Storybook outline changing its appearance.
