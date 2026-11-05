@@ -1,0 +1,92 @@
+.landing {
+  min-height: 100vh;
+  color: var(--brix-color-text-inverse);
+  background: var(--brix-color-surface-inverted);
+}
+
+.landing__nav {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  padding: var(--brix-space-5) clamp(20px, 5vw, 72px);
+  border-bottom: 1px solid rgb(252 252 252 / 14%);
+  color: var(--brix-color-tarnish-300);
+  font-size: var(--brix-font-size-body);
+}
+
+.landing__nav img {
+  width: 76px;
+  filter: brightness(0) invert(1);
+}
+
+.landing__hero {
+  display: grid;
+  align-content: center;
+  min-height: 68vh;
+  padding: clamp(64px, 10vw, 144px) clamp(20px, 8vw, 120px);
+}
+
+.landing__eyebrow {
+  margin: 0 0 var(--brix-space-5);
+  color: var(--brix-color-brand-weaker);
+  font-size: var(--brix-font-size-caption);
+  font-weight: 700;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.landing h1 {
+  max-width: 900px;
+  margin: 0;
+  font-size: clamp(44px, 7vw, 96px);
+  font-weight: 520;
+  line-height: 0.96;
+  letter-spacing: -0.055em;
+}
+
+.landing__lede {
+  max-width: 620px;
+  margin: var(--brix-space-8) 0;
+  color: var(--brix-color-tarnish-300);
+  font-size: clamp(18px, 2vw, 24px);
+  line-height: 1.45;
+}
+
+.landing__link {
+  justify-self: start;
+  padding-bottom: var(--brix-space-1);
+  border-bottom: 1px solid currentColor;
+  color: var(--brix-color-text-inverse);
+  font-weight: 650;
+  text-decoration: none;
+}
+
+.landing__principles {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  border-top: 1px solid rgb(252 252 252 / 14%);
+}
+
+.landing__principles article {
+  min-height: 150px;
+  padding: var(--brix-space-6) clamp(20px, 4vw, 64px);
+  border-right: 1px solid rgb(252 252 252 / 14%);
+}
+
+.landing__principles article:last-child { border-right: 0; }
+
+.landing__principles b {
+  color: var(--brix-color-brand-weaker);
+  font-size: var(--brix-font-size-caption);
+}
+
+.landing__principles p {
+  max-width: 280px;
+  margin: var(--brix-space-8) 0 0;
+  font-size: var(--brix-font-size-body-large);
+}
+
+@media (max-width: 720px) {
+  .landing__principles { grid-template-columns: 1fr; }
+  .landing__principles article { border-right: 0; border-bottom: 1px solid rgb(252 252 252 / 14%); }
+}
