@@ -1,0 +1,41 @@
+import { Meta } from '@storybook/addon-docs/blocks'
+
+<Meta title="Design Tokens/Overview" />
+
+# Design tokens
+
+Brix tokens separate available values from product meaning. Use semantic tokens in components so the role remains stable if the underlying palette changes.
+
+## Architecture
+
+1. **Primitive palette** records the available color ramps.
+2. **Brand colors** name the tones that express Brix’s identity.
+3. **Semantic colors** describe the job a color performs in the interface.
+
+## Semantic-only vocabulary (recommended)
+
+Import the generated custom properties once, then use semantic variables in component styles.
+
+```css
+@import './styles/tokens.generated.css';
+
+.component {
+  color: var(--brix-color-text-primary);
+  background: var(--brix-color-surface-raised);
+  border-color: var(--brix-color-border-default);
+}
+```
+
+Semantic tokens name the job a color performs. They are the normal entry point for product work and the layer Brix components consume.
+
+## Reference pages
+
+- **Primitive palette** contains the source ramps used to maintain Brix tokens.
+- **Color vocabulary** is the single implementation reference for brand and semantic color roles.
+
+## Working rules
+
+- Select colors by role, not by visual similarity.
+- Use explicit default, hover, pressed, focused, and disabled tokens instead of deriving states with opacity.
+- Keep call-center language mapped to global roles: error signals use critical colors, warning signals use warning colors, and live state uses its documented neutral surface with a success indicator.
+- Preserve a literal source value only when replacing it with a broader alias would change an approved artifact rendering.
