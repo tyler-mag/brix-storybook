@@ -1,0 +1,49 @@
+{
+  "name": "brix-storybook",
+  "private": true,
+  "version": "0.1.0",
+  "description": "Brix is a documented component system for call operations workflows.",
+  "type": "module",
+  "packageManager": "pnpm@11.25.0",
+  "engines": {
+    "node": ">=24"
+  },
+  "scripts": {
+    "dev": "vite",
+    "build": "tsc -b && vite build",
+    "lint": "oxlint",
+    "typecheck": "tsc -b --pretty false",
+    "test-storybook": "vitest run --config vitest.config.ts",
+    "check": "pnpm lint && pnpm typecheck && pnpm test-storybook && pnpm build-storybook",
+    "preview": "vite preview",
+    "storybook": "storybook dev -p 6006",
+    "build-storybook": "storybook build",
+    "capture-case-study-media": "node scripts/capture-case-study-media.mjs"
+  },
+  "dependencies": {
+    "@fontsource-variable/figtree": "^5.3.0",
+    "@radix-ui/react-popover": "^1.3.1",
+    "@radix-ui/react-tooltip": "^1.4.1",
+    "lucide-react": "^1.61.0",
+    "react": "^19.3.1",
+    "react-dom": "^19.3.1"
+  },
+  "devDependencies": {
+    "@chromatic-com/storybook": "^5.6.0",
+    "@storybook/addon-a11y": "10.6.4",
+    "@storybook/addon-docs": "10.6.4",
+    "@storybook/addon-vitest": "10.6.4",
+    "@storybook/react-vite": "10.6.4",
+    "@types/node": "^24.19.2",
+    "@types/react": "^19.3.0",
+    "@types/react-dom": "^19.3.0",
+    "@vitejs/plugin-react": "^6.1.2",
+    "@vitest/browser-playwright": "^5.0.5",
+    "oxlint": "^1.88.0",
+    "playwright": "^1.64.1",
+    "storybook": "10.6.4",
+    "typescript": "~6.0.3",
+    "vite": "^8.3.4",
+    "vitest": "^5.0.5"
+  }
+}
